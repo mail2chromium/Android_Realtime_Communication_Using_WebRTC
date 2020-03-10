@@ -1,0 +1,1 @@
+All in all WebRTC. A Complete Guide to enable Rich and High Quality of **Real-Time Voice Communication** on Android Platform. This repository involves a complete understanding, implementation and documentation related to WebRTC Audio Processing.
