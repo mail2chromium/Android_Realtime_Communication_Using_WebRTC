@@ -217,8 +217,8 @@ I will start explaining the following Process in very specific detail. So first 
 
 **Basic Terminologies:**
 
-- Peer-A <--> `Caller` <--> Bill Gates (Steve) The Person who initiate PeerConnection
-- Peer-A <--> `Callee` <--> Steve Jobs (Bill) The Person who accepts PeerConnection
+- Peer-A <--> `Caller` <--> Steve Jobs (Steve) The Person who initiate PeerConnection
+- Peer-A <--> `Callee` <--> Bill Gates (Bill) The Person who accepts PeerConnection
 
 **PeerConnection** is the API used by the WebRTC Android Application to create connection between peers and communicate `audio` and `video`.
 PeerConnection has two tasks to initialize the Process such as:
