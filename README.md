@@ -429,4 +429,3 @@ application `build.gradle` file just includes the following dependency:
 
 As [libjingle (Build on the top of WebRTC Native Stack)](https://chromium.googlesource.com/external/webrtc/stable/talk/+/3798b4190c4a196ed1f38f68492a1e51072d8024/libjingle.gyp) has implemented all of the *three* above mentioned WebRTC APIs in a very detailed and specific way to follow the standards of WebRTC. To get the detailed intuition about
 libjingle you can visit [Google Talk for Developers](https://developers.google.com/talk/libjingle/developer_guide). Good Luck Guys!!!
-
