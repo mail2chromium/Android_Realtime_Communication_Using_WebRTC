@@ -264,7 +264,7 @@ Now I will discuss complete Offer/Answer mechanism with all its glory details:
 
 ```
 
-**5.** Bill calls `setRemoteDescription()`` with Steve's offer, so that his *PeerConnection* knows about Steve's setup for audio or video communication.
+**5.** Bill calls `setRemoteDescription()` with Steve's offer, so that his *PeerConnection* knows about Steve's setup for audio or video communication.
 
 ```
         peerConnection.setRemoteDescription(sdpObserver, sdp2);
