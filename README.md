@@ -38,7 +38,8 @@ You can get the complete documentation and details of these three APIs in these 
 
 All of the above three documentations belong to Web-browsers only. But here, we will discuss for Android.
 
-#### What is Signaling:
+----
+# What is Signaling:
 
 The most important thing to remember is that "**Signaling is not the part of WebRTC**  Why?
 Because of these few reasons such as;
@@ -119,8 +120,7 @@ However, a little context is, you can follow these references to implement signa
 - [Cloud Functions of Firebase for Signaling](https://firebase.google.com/docs/functions)
 
 ----
-
-#### STUN vs TURN:
+# STUN vs TURN:
 
 [STUN (Session Traversal Utilities for NAT)](https://tools.ietf.org/html/rfc5389) is a standardized set of methods, including a network protocol, for traversal of network address translator gateways in applications of real-time voice, video, messaging, and other interactive communications.
 [TURN (Traversal Using Relay NAT)](https://tools.ietf.org/html/rfc5766) is a protocol that allows a client to obtain IP addresses and ports from such a relay.
@@ -151,7 +151,6 @@ In the real world, WebRTC needs servers to fulfill four types of server-side fun
 - Relay servers in case peer-to-peer communication fails
 
 ----
-
 # Peer to Peer Communication
 
 Here we will discuss the complete workaround to establish Peer-to-Peer communication between two Android Phones/Terminal/Nodes.
@@ -173,34 +172,33 @@ PeerConnection has two tasks to initialize the Process such as:
 This metadata is used for the offer and answer mechanism. Once this local data has been ascertained (Gathered), it must be exchanged via a [signaling mechanism](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Session_lifetime#Signaling) with the remote peer.
 
 -----
-
 # Exchange Media Configuration Information
 
 Now I will discuss complete Offer/Answer mechanism with all its glory details:
 
 
-1. Steve creates a `PeerConnection` Object.
+**1.** Steve creates a `PeerConnection` Object.
 
 ```
         peerConnection = peerConnectionFactory.createPeerConnection(iceServers, constraints, peerConnectionObserver);
 
 ```
 
-2. Steve creates an **offer** ([an SDP session description](https://developer.mozilla.org/en-US/docs/Web/API/RTCSessionDescription/RTCSessionDescription)) with the PeerConnection `createOffer()` method.
+**2.** Steve creates an **offer** ([an SDP session description](https://developer.mozilla.org/en-US/docs/Web/API/RTCSessionDescription/RTCSessionDescription)) with the PeerConnection `createOffer()` method.
 
 ```
         peerConnection.createOffer(sdpObserver, constraints);
 
 ```
 
-3. Steve calls `setLocalDescription()` with his offer.
+**3.** Steve calls `setLocalDescription()` with his offer.
 
 ```
         peerConnection.setLocalDescription(sdpObserver, sessionDescription);
 
 ```
 
-4. Steve makes a json object for ([jsonify](https://developer.android.com/reference/org/json/JSONObject)) the offer and uses a signaling mechanism to send it to Bill.
+**4.** Steve makes a json object for ([jsonify](https://developer.android.com/reference/org/json/JSONObject)) the offer and uses a signaling mechanism to send it to Bill.
 
 ```
         - [Google Talk Call Signaling](https://developers.google.com/talk/call_signaling?csw=1)
@@ -209,25 +207,25 @@ Now I will discuss complete Offer/Answer mechanism with all its glory details:
 
 ```
 
-5. Bill calls `setRemoteDescription()`` with Steve's offer, so that his *PeerConnection* knows about Steve's setup for audio or video communication.
+**5.** Bill calls `setRemoteDescription()`` with Steve's offer, so that his *PeerConnection* knows about Steve's setup for audio or video communication.
 
 ```
         peerConnection.setRemoteDescription(sdpObserver, sdp2);
 ```
 
-6. Bill then calls the `createAnswer()` method, and the success callback for this is passed a local session description: Bill's answer as follows
+**6.** Bill then calls the `createAnswer()` method, and the success callback for this is passed a local session description: Bill's answer as follows
 
 ```
         peerConnection.createAnswer(sdpObserver, constraints);
 ```
 
-7. Bill sets her answer as the local description by calling `setLocalDescription()`.
+**7.** Bill sets her answer as the local description by calling `setLocalDescription()`.
 
 ```
         peerConnection.setLocalDescription(sdpObserver, sessionDescription);
 ```
 
-8. Bill then uses the signaling mechanism to send his json object of the (jsonify) answer back to Steve.
+**8.** Bill then uses the signaling mechanism to send his json object of the (jsonify) answer back to Steve.
 
 {
 sdp : "v=0 o=- 3709108758280432862 2 IN IP4 127.0.0.1 s=- t=0 0 a=msid-semantic: WMS m=application 9 DTLS/SCTP 5000 c=IN IP4 0.0.0.0 a=ice-ufrag:/MM7lfHOlMNfSMRk a=ice-pwd:EogZo3Zihb1g0XWgYFKHpeTk a=fingerprint:sha-256 BE:69:CE:D2:D6:41:41:DB:93:3E:3C:F5:D5:3D:D2:5A:33:8A:B0:A6:47:08:AE:24:A0:F6:FE:8F:39:65:21:CE a=setup:actpass a=mid:data a=sctpmap:5000 webrtc-datachannel 1024 ",
@@ -235,7 +233,7 @@ sdp : "v=0 o=- 3709108758280432862 2 IN IP4 127.0.0.1 s=- t=0 0 a=msid-semantic:
 type : "answer"
 }
 
-9. Steve then sets Bill's answer as the remote session description using `setRemoteDescription()`.
+**9.** Steve then sets Bill's answer as the remote session description using `setRemoteDescription()`.
 
 ```
         peerConnection.setRemoteDescription(sdpObserver, sdp2);
@@ -249,7 +247,7 @@ type : "answer"
 
 In the portion, Each of pair start 'Gathering or finding candidates' which refers to the process of finding *network interfaces* and *ports* using the [Ice FrameWork](https://www.html5rocks.com/en/tutorials/webrtc/basics/#ice).
 
-1. Steve creates an `PeerConnection` object with an `onicecandidate(IceCandidate iceCandidate)` handler.
+**1.** Steve creates an `PeerConnection` object with an `onicecandidate(IceCandidate iceCandidate)` handler.
 
 ```
         @Override
@@ -266,11 +264,11 @@ In the portion, Each of pair start 'Gathering or finding candidates' which refer
 
 ```
 
-2. The handler is run when network candidates become available.
+**2.** The handler is run when network candidates become available.
 
-3. Steve sends *serialized candidate data* (json object) to Bill, via whatever signaling channel they are using: TCPSocket, Firebase or some other mechanism.
+**3.** Steve sends *serialized candidate data* (json object) to Bill, via whatever signaling channel they are using: TCPSocket, Firebase or some other mechanism.
 
-4. When Bill gets a candidate message from Steve, he calls `addIceCandidate()` method, to add the candidate to the remote peer description.
+**4.** When Bill gets a candidate message from Steve, he calls `addIceCandidate()` method, to add the candidate to the remote peer description.
 
 ```
         IceCandidate iceCandidate = new IceCandidate(iceCandidateModel.sdpMid, iceCandidateModel.sdpMLineIndex, iceCandidateModel.candidate);
