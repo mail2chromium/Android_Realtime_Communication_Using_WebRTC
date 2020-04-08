@@ -61,9 +61,7 @@ Signaling methods and protocols are not specified by WebRTC standards. On the ot
 
 Android clients (related terminologies {terminals, nodes, members}) need to exchange information such as:
 
------
-
-1. Session control messages used to open or close communication.
+**1.** Session control messages used to open or close communication.
 
 SDP interface describes one end of a connection—or potential connection—and how it's configured. It involves a JSON object with multiple two values (sdp, type)
 
@@ -90,13 +88,13 @@ Here is very specific and detailed intuition about [SdpType (Session Description
 
 -----
 
-2. Error messages and Callbacks.
+**2.** Error messages and Callbacks.
 
-3. Media metadata such as codecs and codec settings, bandwidth and media types.
+**3.** Media metadata such as codecs and codec settings, bandwidth and media types.
 
-4. Key data, used to establish secure connections.
+**4.** Key data, used to establish secure connections.
 
-5. Share ICECandidates with each other which is Network data, such as a host's IP address and port as seen by the outside world.
+**5.** Share ICECandidates with each other which is Network data, such as a host's IP address and port as seen by the outside world.
 
 It involves a JSON object with 4 values (candidate, sdpMid, sdpMLineIndex, type):
 
