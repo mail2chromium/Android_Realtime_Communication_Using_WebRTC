@@ -200,7 +200,7 @@ The returned JSON is parsed into an `IceServer` object, and supplied as part to 
         peerConnection = peerConnectionFactory.createPeerConnection(iceServers, constraints, peerConnectionObserver);
 ```
 
-In general, WebRTC needs servers to fulfill four types of server-side functionality such as:
+You can get the more details about the in  draft i.e [A REST API For Access To TURN Services draft-uberti-behave-turn-rest-00](https://tools.ietf.org/html/draft-uberti-behave-turn-rest-00). In general, WebRTC needs servers to fulfill four types of server-side functionality such as:
 
 - User discovery and communication
 - Signaling
