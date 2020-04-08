@@ -284,11 +284,14 @@ Now I will discuss complete Offer/Answer mechanism with all its glory details:
 
 **8.** Bill then uses the signaling mechanism to send his json object of the (jsonify) answer back to Steve.
 
+```
 {
 sdp : "v=0 o=- 3709108758280432862 2 IN IP4 127.0.0.1 s=- t=0 0 a=msid-semantic: WMS m=application 9 DTLS/SCTP 5000 c=IN IP4 0.0.0.0 a=ice-ufrag:/MM7lfHOlMNfSMRk a=ice-pwd:EogZo3Zihb1g0XWgYFKHpeTk a=fingerprint:sha-256 BE:69:CE:D2:D6:41:41:DB:93:3E:3C:F5:D5:3D:D2:5A:33:8A:B0:A6:47:08:AE:24:A0:F6:FE:8F:39:65:21:CE a=setup:actpass a=mid:data a=sctpmap:5000 webrtc-datachannel 1024 ",
 
 type : "answer"
 }
+
+```
 
 **9.** Steve then sets Bill's answer as the remote session description using `setRemoteDescription()`.
 
