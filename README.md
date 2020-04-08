@@ -141,7 +141,66 @@ You can use open source as well as paid STUN & TURN Services such as:
 - [STUNTMAN Open Source STUN Server Project](https://github.com/jselbie/stunserver)
 - [Twilio Network Traversal Service](https://www.twilio.com/docs/stun-turn)
 
-In the real world, WebRTC needs servers to fulfill four types of server-side functionality such as:
+**Request and Response Architecture of STUN/TURN Services:**
+
+A REST API to Access the TURN Services basically involves the following steps such as:
+
+**Request:**
+
+The request includes the following parameters, specified in the URL:
+
+-  service: specifies the desired service (turn)
+-  username: an optional user id to be associated with the
+-  credentials
+-  key: if an API key is used for authentication, the API key
+
+**Example:**
+```
+     GET /?service=turn&username=mbzrxpgjys
+```
+
+**Response:**
+
+The response is returned with content-type "application/json", and consists of a JSON object with the following parameters:
+
+- username
+- password
+- ttl
+- uris
+
+**Example:**
+
+```
+   {
+     "username" : "12334939:mbzrxpgjys",
+     "password" : "adfsaflsjfldssia",
+     "ttl" : 86400,
+     "uris" : [
+       "turn:1.2.3.4:9991?transport=udp",
+       "turn:1.2.3.4:9992?transport=tcp",
+       "turns:1.2.3.4:443?transport=tcp"
+     ]
+    }
+```
+
+**WebRTC Interactions:**
+
+The returned JSON is parsed into an `IceServer` object, and supplied as part to use when creating a `PeerConnection` as follows:
+
+```
+         List<PeerConnection.IceServer> iceServers = new LinkedList<>();
+                for (int i = 0; i < example.iceServers.size(); i++) {
+                    if (!example.iceServers.get(i).username.isEmpty())
+                        iceServers.add(new PeerConnection.IceServer(example.iceServers.get(i).url, example.iceServers.get(i).username, example.iceServers.get(i).credential));
+                    else
+                        iceServers.add(new PeerConnection.IceServer(example.iceServers.get(i).url));
+                }
+
+        constraints = new MediaConstraints();
+        peerConnection = peerConnectionFactory.createPeerConnection(iceServers, constraints, peerConnectionObserver);
+```
+
+In general, WebRTC needs servers to fulfill four types of server-side functionality such as:
 
 - User discovery and communication
 - Signaling
