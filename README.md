@@ -248,7 +248,12 @@ You can get the more details about the in  draft i.e [A REST API For Access To T
 
 -----
 
-Here we will discuss the complete workaround to establish Peer-to-Peer communication between two Android Phones/Terminal/Nodes.
+Here we will discuss the complete workaround to establish Peer-to-Peer communication between two Android Phones/Terminal/Nodes which basiclly depend on these modules:
+
+ - [Exchange Media Configuration Information](#exchange-Media-Configuration-Information)
+ - [Exchange Network Configuration Information](#exchange-Network-Configuration-Information)
+ - [Communication Via DataChannel](#communication-Via-DataChannel)
+
 I will start explaining the following Process in very specific detail. So first look at the following entire exchange of information between Two Peers:
 
 ![Entire Information Exchange Block Diagram](https://github.com/mail2chromium/Android_Realtime_Communication_Using_WebRTC/blob/master/exchanging_content.png)
