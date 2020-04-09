@@ -17,7 +17,30 @@ For *real-time Communication and AudioProcessing* in Android, I will recommend y
 
 
 ----
-# Quick Introduction:
+
+# Content of this Document
+
+-----
+
+[Quick Introduction](#quick-Introduction)
+
+[What is Signaling?](#what-is-Signaling)
+
+[STUN vs TURN](#stun-vs-TURN)
+
+[Peer to Peer Communication](#peer-to-Peer-Communication)
+
+ - [Exchange Media Configuration Information](#exchange-Media-Configuration-Information)
+ - [Exchange Network Configuration Information](#exchange-Network-Configuration-Information)
+ - [Communication Via DataChannel](#communication-Via-DataChannel)
+
+ [Conclusion](#Conclusion)
+
+----
+
+## Quick Introduction
+
+-----
 
 WebRTC applications need to do several things like:
 
@@ -45,7 +68,10 @@ You can get the complete documentation and details of these three APIs in these 
 All of the above three documentations belong to Web-browsers only. But here, we will discuss for Android.
 
 ----
-# What is Signaling:
+
+## What is Signaling?
+
+-----
 
 The most important thing to remember is that "**Signaling is not the part of WebRTC**  Why?
 Because of these few reasons such as;
@@ -124,7 +150,10 @@ However, a little context is, you can follow these references to implement signa
 - [Cloud Functions of Firebase for Signaling](https://firebase.google.com/docs/functions)
 
 ----
-# STUN vs TURN:
+
+## STUN vs TURN
+
+-----
 
 [STUN (Session Traversal Utilities for NAT)](https://tools.ietf.org/html/rfc5389) is a standardized set of methods, including a network protocol, for traversal of network address translator gateways in applications of real-time voice, video, messaging, and other interactive communications.
 [TURN (Traversal Using Relay NAT)](https://tools.ietf.org/html/rfc5766) is a protocol that allows a client to obtain IP addresses and ports from such a relay.
@@ -214,7 +243,10 @@ You can get the more details about the in  draft i.e [A REST API For Access To T
 - Relay servers in case peer-to-peer communication fails
 
 ----
-# Peer to Peer Communication
+
+## Peer to Peer Communication
+
+-----
 
 Here we will discuss the complete workaround to establish Peer-to-Peer communication between two Android Phones/Terminal/Nodes.
 I will start explaining the following Process in very specific detail. So first look at the following entire exchange of information between Two Peers:
@@ -235,7 +267,10 @@ PeerConnection has two tasks to initialize the Process such as:
 This metadata is used for the offer and answer mechanism. Once this local data has been ascertained (Gathered), it must be exchanged via a [signaling mechanism](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Session_lifetime#Signaling) with the remote peer.
 
 -----
-# Exchange Media Configuration Information
+
+### Exchange Media Configuration Information
+
+-----
 
 Now I will discuss complete Offer/Answer mechanism with all its glory details:
 
@@ -308,8 +343,9 @@ type : "answer"
 
 -----
 
-# Exchange Network Configuration Information
+### Exchange Network Configuration Information
 
+-----
 
 In the portion, Each of pair start 'Gathering or finding candidates' which refers to the process of finding *network interfaces* and *ports* using the [Ice FrameWork](https://www.html5rocks.com/en/tutorials/webrtc/basics/#ice).
 
@@ -341,10 +377,10 @@ In the portion, Each of pair start 'Gathering or finding candidates' which refer
         peerConnection.addIceCandidate(iceCandidate);
 ```
 
-# Summary
+#### Summary
 
 To sum up the above discussion, We have a **Android Client** also known as *Steve* first create an offer using `PeerConnection createOffer()` method. The return from this is passed an SessionDescription: Steve's local session description.
-In the callback, Steve sets the *local description* using `setLocalDescription()`` and then sends this session description to Bill via their signaling channel. Note that `PeerConnection` won't start gathering candidates until `setLocalDescription()` is called.
+In the callback, Steve sets the *local description* using `setLocalDescription()` and then sends this session description to Bill via their signaling channel. Note that `PeerConnection` won't start gathering candidates until `setLocalDescription()` is called.
 Bill sets the description which Steve sent him as the *remote description* using `setRemoteDescription()`.
 Bill runs the `PeerConnection createAnswer()` method, passing it the remote description he got from Steve, so a local session can be generated that is compatible with him. The `createAnswer()` callback is passed an `SessionDescription`: Bill sets that as the *local description* and sends it to Steve.
 When Steve gets Bill's session description, he sets that as the *remote description* with setRemoteDescription. Its a very simple and pretty straight forward discussion: Bravo!!!
@@ -353,8 +389,9 @@ When Steve gets Bill's session description, he sets that as the *remote descript
 
 ----
 
-# Communication Via DataChannel
+### Communication Via DataChannel
 
+-----
 
 Once the `PeerConnection` is established between the *Peer-A* and *Peer-B*, they both can use DataChannel API to share Data between each other. The DataChannel API enables peer-to-peer exchange of arbitrary data (audio, video, etc), with low latency and high throughput.
 Steve sends its useful information in the form of bytes using DataChannel `send(new DataChannel.Buffer(buffer, false))`.
@@ -425,7 +462,9 @@ If a particular connection fails, P2P TransportChannel will seamlessly switch to
 
 -----
 
-# Conclusion
+## Conclusion
+
+-----
 
 The WebRTC APIs and standards can very useful and optimized tools for content creation and communication—for real-time audio, gaming, video production, music making, news gathering and many other applications.
 I have tried my best to give you guys the more appropriate and detailed information with the simple implementation. All you need is to create and Android Application and inside the
