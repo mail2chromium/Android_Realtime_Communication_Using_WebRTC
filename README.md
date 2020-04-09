@@ -24,7 +24,7 @@ For *real-time Communication and AudioProcessing* in Android, I will recommend y
 
 [Quick Introduction](#quick-Introduction)
 
-[What is Signaling?](#what-is-Signaling)
+[Signaling](#signaling)
 
 [STUN vs TURN](#stun-vs-TURN)
 
@@ -69,11 +69,11 @@ All of the above three documentations belong to Web-browsers only. But here, we 
 
 ----
 
-## What is Signaling?
+## Signaling
 
 -----
 
-The most important thing to remember is that "**Signaling is not the part of WebRTC**  Why?
+The most important thing to remember is that "**Signaling is not the part of WebRTC! Why?**
 Because of these few reasons such as;
 
 - To avoid redundancy, and
