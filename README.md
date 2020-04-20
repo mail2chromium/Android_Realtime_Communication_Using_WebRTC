@@ -9,8 +9,12 @@ This Guide is based on the referenced article which is basically a complete unde
 
 If you want to do communication using WebRTC in *Android*, then Good luck guys! There is no need to beating around the bush (Redundant Information About WebRTC on Internet (Mostly For Web Browsers)). Just calm down and read this article. You will end up with a realtime communication over TURN and STUN using WebRTC.
 
-For *real-time Communication and AudioProcessing* in Android, I will recommend you to must visit these refernces:
+For *Compilation and Building the WebRTC Library for Android*, you should have to look into this refernce:
 
+- [Compile_WebRTC_Library_For_Android](https://github.com/mail2chromium/Compile_WebRTC_Library_For_Android)
+
+
+For *real-time Communication and AudioProcessing* in Android, I will recommend you to must visit these refernces:
 
 - [Android-Audio-Processing-Using-WebRTC](https://github.com/mail2chromium/Android-Audio-Processing-Using-WebRTC)
 - [Android-Native-Development-For-WebRTC](https://github.com/mail2chromium/Android-Native-Development-For-WebRTC)
