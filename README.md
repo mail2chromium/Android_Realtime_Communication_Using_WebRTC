@@ -28,19 +28,19 @@ For *real-time Communication and AudioProcessing* in Android, I will recommend y
 
 -----
 
-[Quick Introduction](#quick-Introduction)
+- [Quick Introduction](#quick-Introduction)
 
-[Signaling](#signaling)
+- [Signaling](#signaling)
 
-[STUN vs TURN](#stun-vs-TURN)
+- [STUN vs TURN](#stun-vs-TURN)
 
-[Peer to Peer Communication](#peer-to-Peer-Communication)
+- [Peer to Peer Communication](#peer-to-Peer-Communication)
 
- - [Exchange Media Configuration Information](#exchange-Media-Configuration-Information)
- - [Exchange Network Configuration Information](#exchange-Network-Configuration-Information)
- - [Communication Via DataChannel](#communication-Via-DataChannel)
+  - [Exchange Media Configuration Information](#exchange-Media-Configuration-Information)
+  - [Exchange Network Configuration Information](#exchange-Network-Configuration-Information)
+  - [Communication Via DataChannel](#communication-Via-DataChannel)
 
- [Conclusion](#Conclusion)
+- [Conclusion](#Conclusion)
 
 ----
 
