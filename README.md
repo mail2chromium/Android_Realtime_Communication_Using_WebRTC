@@ -1,7 +1,9 @@
 # "WebRTC Native Stack is considered as a single chain as close to the Hardware Abstraction Layer (HAL) as possible."
 
+-----
 
 **Getting Started**
+
 ------
 
 This repository involves a **Step by Step Gide to perform WebRTC STUN, TURN Communication in the real world**.
@@ -22,7 +24,7 @@ For *real-time Communication and AudioProcessing* in Android, I will recommend y
 
 ----
 
-# Content of this Document
+### Content of this Document
 
 -----
 
@@ -42,7 +44,7 @@ For *real-time Communication and AudioProcessing* in Android, I will recommend y
 
 ----
 
-## [Quick Introduction](#quick-Introduction)
+### [Quick Introduction](#quick-Introduction)
 
 -----
 
@@ -73,7 +75,7 @@ All of the above three documentations belong to Web-browsers only. But here, we 
 
 ----
 
-## [Signaling](#signaling)
+### [Signaling](#signaling)
 
 -----
 
@@ -155,7 +157,7 @@ However, a little context is, you can follow these references to implement signa
 
 ----
 
-## [STUN vs TURN](#stun-vs-TURN)
+### [STUN vs TURN](#stun-vs-TURN)
 
 -----
 
@@ -248,7 +250,7 @@ You can get the more details about the in  draft i.e [A REST API For Access To T
 
 ----
 
-## [Peer to Peer Communication](#peer-to-Peer-Communication)
+### [Peer to Peer Communication](#peer-to-Peer-Communication)
 
 -----
 
@@ -471,7 +473,7 @@ If a particular connection fails, P2P TransportChannel will seamlessly switch to
 
 -----
 
-## [Conclusion](#Conclusion)
+### [Conclusion](#Conclusion)
 
 -----
 
