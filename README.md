@@ -309,12 +309,12 @@ Now I will discuss complete Offer/Answer mechanism with all its glory details:
 
 **4.** Steve makes a json object for ([jsonify](https://developer.android.com/reference/org/json/JSONObject)) the offer and uses a signaling mechanism to send it to Bill.
 
-```
-        - [Google Talk Call Signaling](https://developers.google.com/talk/call_signaling?csw=1)
-        - [Process Signaling using Nats.io](https://docs.nats.io/nats-streaming-server/process-signaling)
-        - [Cloud Functions of Firebase for Signaling](https://firebase.google.com/docs/functions)
 
-```
+  - [Google Talk Call Signaling](https://developers.google.com/talk/call_signaling?csw=1)
+  - [Process Signaling using Nats.io](https://docs.nats.io/nats-streaming-server/process-signaling)
+  - [Cloud Functions of Firebase for Signaling](https://firebase.google.com/docs/functions)
+
+
 
 **5.** Bill calls `setRemoteDescription()` with Steve's offer, so that his *PeerConnection* knows about Steve's setup for audio or video communication.
 
