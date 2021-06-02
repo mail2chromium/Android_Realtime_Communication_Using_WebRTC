@@ -1,4 +1,4 @@
-# "WebRTC Native Stack is considered as a single chain as close to the Hardware Abstraction Layer (HAL) as possible."
+# "WebRTC Native Stack is considered as a signal chain as close to the Hardware Abstraction Layer (HAL) as possible."
 
 -----
 
